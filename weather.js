@@ -4,6 +4,10 @@ let descPic = document.getElementById("descriptive-picture");
 let temp = document.getElementById("temperature");
 let weatherDesc = document.getElementById("weather-description");
 let CountryCity = document.getElementById("Country-City");
+let feelsLike = document.getElementById("feels-like");
+let windSpeed = document.getElementById("wind-speed");
+let humidity = document.getElementById("humidity");
+let clouds = document.getElementById("clouds");
 
 // use the html geolocator api to find the user's location
 function getLocation() {
@@ -13,6 +17,7 @@ function getLocation() {
   else {
     notification.innerHTML = "Geolocation not supported";
   }
+  document.getElementById("B").style.display="none";
 }
 
 // if access allowed, store the position and call the weather api function
@@ -53,6 +58,10 @@ function getWeather(latitude, longitude){
             weather.iconId = data.weather[0].icon;
             weather.city = data.name;
             weather.country = data.sys.country;
+            weather.feelsLike = Math.floor(data.main.feels_like - 273);
+            weather.windspeed = data.wind.speed;
+            weather.humidity = data.main.humidity;
+            weather.clouds = data.clouds.all;
             console.log(weather);
 
         })
@@ -64,9 +73,19 @@ function getWeather(latitude, longitude){
   console.log(weather);
 
   function outputWeather(){
+
       notification.innerHTML = "Click the temperature unit to convert to another unit";
-      descPic.innerHTML = `<img src="images/icons/${weather.iconId}.png"/>`;
+      descPic.innerHTML = `<img src="icons/${weather.iconId}.png"/>`;
       temp.innerHTML = `${weather.temperature} °C`;
-      weatherDesc.innerHTML = weather.description;
+      weatherDesc.innerHTML = capitalize(weather.description);
       CountryCity.innerHTML = `${weather.city}, ${weather.country}`;
+      feelsLike.innerHTML = `Feels like: ${weather.feelsLike} °C`;
+      windSpeed.innerHTML = `Wind Speed: ${weather.windSpeed} meters/second`;
+      humidity.innerHTML = `Humidity: ${weather.humidity}%`;
+      clouds.innerHTML = `Cloudiness: ${weather.clouds}%`
+
   }
+
+  function capitalize(string) {
+    return string.charAt(0).toUpperCase() + string.slice(1);
+}

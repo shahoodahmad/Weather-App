@@ -5,37 +5,33 @@
 <head>
   <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
   <meta name="viewport" content="width=device-width">
-  <title>W App</title>
-  <!LINK id="link1" href="styles.css" rel="stylesheet" type="text/css">
+  <title>Weather</title>
+  <LINK id="link1" href="theme.css" rel="stylesheet" type="text/css">
 </head>
 <body>
 
   <center>
 
-  <div>
-    <div>
-      <<h1>Weather App</h1>
-    </div>
-    <div>
-      <button class="button" onclick="getLocation()">Give location access</button>
+      <h1>Weather App</h1>
+
+      <button id="B" class="button" onclick="getLocation()">Give location access</button>
       <p id="notification"></p>
-    </div>
-    <div id="descriptive-picture">
-      <img src="images/icons/unknown.png" alt="?">
-    </div>
+
     <div>
+      <p id="descriptive-picture"><img src="icons/unknown.png" alt="?"></p>
       <p id="temperature">-- °C</p>
-    </div>
-    <div>
-      <p id="weather-description">Description Unknown</p>
-    </div>
-    <div>
-      <p>Your current location is registered near:</p>
-      <p id="Country-City">Unknown</p>
+      <p id="feels-like"></p>
+      <p id="weather-description"></p>
+      <p id="wind-speed"></p>
+      <p id="humidity"></p>  <p id="clouds"></p>
+      <p id="Country-City"></p>
     </div>
 
-  </div>
 
+<footer>
+    <p>Powered by <a href="https://openweathermap.org/" target="_blank">Open Weather</a> API</p>
+    <p>Icon designs created by Graphic Designer <a href="https://github.com/manifestinteractive/weather-underground-icons" target="_blank">Ashley Jager</a> </p>
+</footer>
 
   <script src= "weather.js"> </script>
 
