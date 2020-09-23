@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+
+<html>
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+  <meta name="viewport" content="width=device-width">
+  <title>W App</title>
+  <LINK id="link1" href="styles.css" rel="stylesheet" type="text/css">
+</head>
+<body>
+
+  <center>
+
+  <p class="link">
+  <a href="index.html">Home</a> | <a href="bulb.html">Lightbulb</a> | <a href="scratch.html">Scratch</a> | <b>Weather</b>
+  </p>
+
+  <div>
+    <div>
+      <p>Weather App</p>
+    </div>
+    <div>
+      <button class="button" onclick="getLocation()">Give location access</button>
+      <p id="notification"></p>
+    </div>
+    <div id="descriptive-picture">
+      <img src="images/icons/unknown.png" alt="?">
+    </div>
+    <div>
+      <p id="temperature">-- °C</p>
+    </div>
+    <div>
+      <p id="weather-description">Description Unknown</p>
+    </div>
+    <div>
+      <p>Your current location is registered near:</p>
+      <p id="Country-City">Unknown</p>
+    </div>
+
+  </div>
+
+
+  <script src= "weather.js"> </script>
+
+
+</body>
+</html>
