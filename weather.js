@@ -39,6 +39,7 @@ function showError(error) {
 // create a weather object to store the api information
 const weather = {};
 
+// set initial units
 weather.tempUnit = "C";
 weather.windUnit = "MS";
 
@@ -51,6 +52,7 @@ function getWeather(latitude, longitude){
             let data = response.json();
             return data;
         })
+        // extract API info and store in the weather object
         .then(function(data){
             console.log(data);
             weather.temperature = Math.floor(data.main.temp - 273);
@@ -62,7 +64,6 @@ function getWeather(latitude, longitude){
             weather.windspeed = data.wind.speed;
             weather.humidity = data.main.humidity;
             weather.clouds = data.clouds.all;
-            console.log(weather);
 
         })
         .then(function(){
@@ -70,6 +71,7 @@ function getWeather(latitude, longitude){
         });
 }
 
+// edit the HTML on the page to ddisplay the data
 function outputWeather(){
     notification.innerHTML = "Click the temperature or the wind speed <br> to convert to another unit";
     descPic.innerHTML = `<img src="icons/${weather.iconId}.png"/>`;
@@ -82,6 +84,7 @@ function outputWeather(){
     clouds.innerHTML = `Cloudiness: ${weather.clouds}%`
   }
 
+// temperature unit change
 temp.addEventListener("click", event =>{
   if (weather.tempUnit == "C"){
     temp.innerHTML = `${(weather.temperature)*(9/5)+32} °F`;
@@ -95,6 +98,7 @@ temp.addEventListener("click", event =>{
   }
 });
 
+// wind speed unit change
 windSpeed.addEventListener("click", event =>{
   if (weather.windUnit == "MS"){
     windSpeed.innerHTML = `Wind Speed: ${(nullcheck(weather.windspeed)*2.24).toFixed(2)} miles/hour, ${speedStatus(weather.windspeed)}`;
@@ -106,22 +110,25 @@ windSpeed.addEventListener("click", event =>{
   }
 });
 
-
+// capitalize function - used on the weather description
 function capitalize(string) {
     return string.charAt(0).toUpperCase() + string.slice(1);
 }
 
+// classify humidity
 function humidStatus(string){
   if (string > 50){ return "High";}
   else if (string > 30){ return "Ideal";}
   else { return "Low";}
 }
 
+// check if a value is undefined and handle it
 function nullcheck(string){
   if (string == "undefined") { return "Not found";}
   else { return string; }
 }
 
+// classify wind speed
 function speedStatus(string){
   if (string > 25){ return "Severe";}
   else if (string > 11){ return "Strong";}
