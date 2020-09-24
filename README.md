@@ -1,6 +1,7 @@
 # Weather-App
 
 Simple web based weather app 
+
 Made using HTML, CSS and (vanilla) JavaScript
 
 Uses the HTML Geolocation API to find the machines location (appropriate message displayed) 
