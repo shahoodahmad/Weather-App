@@ -71,9 +71,11 @@ function getWeather(latitude, longitude){
         });
 }
 
+var d = new Date();
+
 // edit the HTML on the page to ddisplay the data
 function outputWeather(){
-    notification.innerHTML = "Click the temperature or the wind speed <br> to convert to another unit";
+    notification.innerHTML = `Updated on ${d.getMonth()+1}/${d.getDate()} at ${Normalize(d.getHours())}:${pad(d.getMinutes())} ${amVSpm(d.getHours())}`;
     descPic.innerHTML = `<img src="icons/${weather.iconId}.png"/>`;
     temp.innerHTML = `${weather.temperature} °C`;
     weatherDesc.innerHTML = capitalize(weather.description);
@@ -134,4 +136,21 @@ function speedStatus(string){
   else if (string > 11){ return "Strong";}
   else if (string > 5){ return "Moderate";}
   else { return "Light";}
+}
+
+// convert time form 23 hour scale to 12
+function Normalize(string){
+  if (string > 12){ return (string-12);}
+  if (string == "0"){return 12;}
+}
+
+// AM vs PM
+function amVSpm(string){
+  if (string < 12) {return "AM";}
+  else { return "PM";}
+}
+
+// pad minutes with zeros
+function pad(string){
+  if (string <10) {return "0"+string;}
 }

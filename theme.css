@@ -26,6 +26,7 @@ h1 {
 
 #temperature, #wind-speed{
   cursor: pointer;
+  color: #2d1278;
 }
 
 .button {
