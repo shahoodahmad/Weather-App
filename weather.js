@@ -124,7 +124,7 @@ function humidStatus(string){
   else { return "Low";}
 }
 
-// check if a value is undefined and handle it
+// check if a value is undefined and handle it - used on wind speed
 function nullcheck(string){
   if (string == "undefined") { return "Not found";}
   else { return string; }
@@ -138,10 +138,11 @@ function speedStatus(string){
   else { return "Light";}
 }
 
-// convert time form 23 hour scale to 12
+// convert time form 24 hour scale to 12
 function Normalize(string){
   if (string > 12){ return (string-12);}
-  if (string == "0"){return 12;}
+  else if (string == "0") { return 12;}
+  else { return string;}
 }
 
 // AM vs PM
@@ -153,4 +154,5 @@ function amVSpm(string){
 // pad minutes with zeros
 function pad(string){
   if (string <10) {return "0"+string;}
+  else { return string;}
 }
