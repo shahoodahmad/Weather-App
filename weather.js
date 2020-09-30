@@ -45,7 +45,7 @@ weather.windUnit = "MS";
 
 // weather api call function
 function getWeather(latitude, longitude){
-  let api = `https://cors-anywhere.herokuapp.com/http://api.openweathermap.org/data/2.5/weather?lat=${latitude}&lon=${longitude}&appid=09ca28f467aa94c207b9ce9c95473bc9`;
+  let api = `http://api.openweathermap.org/data/2.5/weather?lat=${latitude}&lon=${longitude}&appid=09ca28f467aa94c207b9ce9c95473bc9`;
 
   fetch(api)
         .then(function(response){
@@ -89,8 +89,8 @@ function outputWeather(){
 // temperature unit change
 temp.addEventListener("click", event =>{
   if (weather.tempUnit == "C"){
-    temp.innerHTML = `${(weather.temperature)*(9/5)+32} °F`;
-    feelsLike.innerHTML = `Feels like: ${(weather.feelsLike)*(9/5)+32} °F`;
+    temp.innerHTML = `${((weather.temperature)*(9/5)+32).toFixed(2)} °F`;
+    feelsLike.innerHTML = `Feels like: ${((weather.feelsLike)*(9/5)+32).toFixed(2)} °F`;
     weather.tempUnit = "F";
   }
   else {
