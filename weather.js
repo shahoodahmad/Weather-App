@@ -103,7 +103,7 @@ temp.addEventListener("click", event =>{
 // wind speed unit change
 windSpeed.addEventListener("click", event =>{
   if (weather.windUnit == "MS"){
-    windSpeed.innerHTML = `Wind Speed: ${nullcheck(weather.windspeed)*2.24} miles/hour, ${speedStatus(weather.windspeed)}`;
+    windSpeed.innerHTML = `Wind Speed: ${nullcheck(weather.windspeed)*2.2} miles/hour, ${speedStatus(weather.windspeed)}`;
     weather.windUnit = "MPH";
   }
   else {
