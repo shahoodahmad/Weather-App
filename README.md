@@ -1,5 +1,8 @@
 # Weather-App
 
+# View a live demo of the project
+https://shahoodahmad.github.io/ 
+
 Simple web based weather app 
 
 Made using HTML, CSS and (vanilla) JavaScript
