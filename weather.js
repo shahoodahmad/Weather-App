@@ -89,8 +89,8 @@ function outputWeather(){
 // temperature unit change
 temp.addEventListener("click", event =>{
   if (weather.tempUnit == "C"){
-    temp.innerHTML = `${((weather.temperature)*(9/5)+32).toFixed(2)} °F`;
-    feelsLike.innerHTML = `Feels like: ${((weather.feelsLike)*(9/5)+32).toFixed(2)} °F`;
+    temp.innerHTML = `${((weather.temperature)*(9/5)+32).toFixed(1)} °F`;
+    feelsLike.innerHTML = `Feels like: ${((weather.feelsLike)*(9/5)+32).toFixed(1)} °F`;
     weather.tempUnit = "F";
   }
   else {
@@ -103,7 +103,7 @@ temp.addEventListener("click", event =>{
 // wind speed unit change
 windSpeed.addEventListener("click", event =>{
   if (weather.windUnit == "MS"){
-    windSpeed.innerHTML = `Wind Speed: ${(nullcheck(weather.windspeed)*2.24).toFixed(2)} miles/hour, ${speedStatus(weather.windspeed)}`;
+    windSpeed.innerHTML = `Wind Speed: ${nullcheck(weather.windspeed)*2.24} miles/hour, ${speedStatus(weather.windspeed)}`;
     weather.windUnit = "MPH";
   }
   else {
