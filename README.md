@@ -1,7 +1,7 @@
 # Weather-App
 
 # View a live demo of the project
-https://shahoodahmad.github.io/ - The weather project is currently running into issues and therefore cannot be hosted through Github. To try a demo, please download it directly from this repo.
+Download this folder and run the index.html file
 
 Simple web based weather app 
 
